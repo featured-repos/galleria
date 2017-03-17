@@ -1,0 +1,55 @@
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"> Logo </a>
+    </div>
+    <div class="navbar-right">
+      <p class="navbar-text"> About </p>
+      <p class="navbar-text"> <%= link_to "Log In", login_path %> </p>
+      <p class="navbar-text"> <%= link_to "Log Out", logout_path, method: :delete %> </p>
+
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1 class="jumbo_title">Welcome to the Galleria</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 home_title">
+      <h2>Welcome to the Galleria</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 first_para">
+      <p>
+        You can do this cool stuff here
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 second_para">
+      <p>
+        This is another row of cool stuff.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      Sign up here
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <button type="button" class="btn btn-primary btn-lg btn-block"> <%= link_to "Sign up here", new_user_path %> </button>
+    </div>
+  </div>
+</div>
