@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.signup(@user).deliver
       session[:id] = @user.id
-      redirect_to @user
+      redirect_to :dashboard
     else
       render :new
     end

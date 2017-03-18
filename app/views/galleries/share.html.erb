@@ -1,0 +1,9 @@
+<h1>Share this gallery</h1>
+
+<%= @gallery.title %>
+<%= image_tag @gallery.photos.last.size(:thumbnail) %>
+
+<%= simple_form_for :share, class: "form-horizontal" do |f| %>
+  <%= f.input :email %>
+  <%= f.button :submit %>
+<% end %>

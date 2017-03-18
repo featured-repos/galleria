@@ -1,16 +1,1 @@
 <h1> User profile </h1>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      Gallery list
-    </div>
-  </div>
-  <% @user.galleries.each do |g| %>
-  <div class="row">
-    <div class="col-md-12">
-      <%= link_to g.title %>
-    </div>
-  </div>
-  <% end %>
-</div>

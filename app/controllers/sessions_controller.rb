@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id
       flash[:success] = "Welcome, #{@user.username}!"
-      redirect_to @user
+      redirect_to :dashboard
     else
       flash[:danger] = "Incorrect login. Please try again."
       redirect_to :login

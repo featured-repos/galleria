@@ -1,0 +1,7 @@
+<h1> Create a new gallery </h1>
+
+<%= simple_form_for @gallery, class: "form-horizontal" do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.button :submit %>
+<% end %>

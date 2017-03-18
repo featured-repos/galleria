@@ -1,0 +1,50 @@
+<h1>This is your dashboard</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      Gallery list
+    </div>
+  </div>
+  <% @user.galleries.each do |g| %>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-2">
+      <% if g.photos.any? %>
+        <%= link_to g do %>
+          <%= image_tag g.photos.last.size(:thumbnail) %>
+          <% end %>
+      <% else %>
+        Thumbnail
+      <% end %>
+    </div>
+    <div class="col-md-8">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="row">
+            <%= link_to "#{g.title}", gallery_path(g) %>
+          </div>
+          <div class="row">
+            <%= g.description %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="row">
+            <%= link_to "Edit", edit_gallery_path(g), method: :edit, class: "btn btn-primary" %>
+          </div>
+          <div class="row">
+            <%= link_to "Delete this gallery", gallery_path(g), method: :delete, class: "btn btn-danger" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-4 col-md-4">
+      <%= link_to "Create a new gallery", new_gallery_path, class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
+</div>

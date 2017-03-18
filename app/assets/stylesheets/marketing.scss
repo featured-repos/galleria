@@ -9,8 +9,9 @@ body {
   margin: 0px;
 }
 .jumbotron {
-    background-color: yellow;
-    height: 400px;
+    background-image: image-url("jumbotron2.png");
+    background-size: cover;
+    height: 500px;
 
   .navbar {
 
@@ -28,4 +29,8 @@ body {
 
 .body_1 {
   text-align: center;
+}
+
+footer {
+  margin-top: 50px;
 }
