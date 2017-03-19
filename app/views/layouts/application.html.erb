@@ -16,25 +16,35 @@
           <a class="navbar-brand" href="#"> Logo </a>
         </div>
         <div class="navbar-right">
-          <p class="navbar-text"> <%= link_to "Home", :root %> </p>
-          <p class="navbar-text"> About </p>
-          <p class="navbar-text"> <%= link_to "Log In", login_path %> </p>
-          <p class="navbar-text"> <%= link_to "Log Out", logout_path, method: :delete %> </p>
+          <% if current_user %>
+            <p class="navbar-text"> <%= link_to "Dashboard", :dashboard %> </p>
+            <p class="navbar-text"> <%= link_to "Log Out", logout_path, method: :delete %> </p>
+          <% else %>
+            <p class="navbar-text"> <%= link_to "Home", :root %> </p>
+            <p class="navbar-text"> <%= link_to "Log In", login_path %> </p>
+          <% end %>
 
         </div>
       </div>
     </nav>
 
+    <% if flash.any? %>
+      <% flash.each do |klass, message| %>
+      <div class="alert alert-<%= klass %>" role="alert">
+        <p> <%= message %> </p>
+      </div>
+      <% end %>
+    <% end %>
+
     <%= yield %>
 
 
   <footer>
-    <div class="navbar navbar-default">
-      <div class="container-fluid">
-        <p>  This is the footer </p>
+    <div class="container footer">
+      <div class="col-md-12">
+        Footer
       </div>
     </div>
-
   </footer>
 
   </body>

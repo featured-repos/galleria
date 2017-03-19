@@ -60,4 +60,11 @@ class GalleriesController < ApplicationController
     params.require(:gallery).permit(:title, :description)
   end
 
+  def owned_by
+    unless @gallery = current_user.galleries.find(params[:id])
+      flash[:warning] = "You don't have permission to do that."
+      redirect_to :root
+    end
+  end
+
 end

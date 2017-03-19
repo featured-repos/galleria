@@ -8,7 +8,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       UserMailer.signup(@user).deliver
-      session[:id] = @user.id
+      session[:user_id] = @user.id
+      flash[:success] = "Welcome to SHOW ME WHAT YOU GOT, #{@user.username}!"
       redirect_to :dashboard
     else
       render :new

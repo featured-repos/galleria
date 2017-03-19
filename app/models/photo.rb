@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
   belongs_to :gallery
+  belongs_to :user
 
   mount_uploader :photo, PhotoUploader
 
@@ -9,6 +10,18 @@ class Photo < ApplicationRecord
     else
       ""
     end
+  end
+
+  def owned_by?(this_user)
+    user == this_user
+  end
+
+  def next
+    user.photos.where("photos.id > ?", id).first
+  end
+
+  def previous
+    user.photos.where("photos.id < ?", id).last
   end
 
 end

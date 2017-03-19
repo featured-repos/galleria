@@ -9,16 +9,18 @@ body {
   margin: 0px;
 }
 .jumbotron {
-    background-image: image-url("jumbotron2.png");
-    background-size: cover;
-    height: 500px;
-
-  .navbar {
-
-  }
+  background-image: image-url("jumbotron2.png");
+  background-size: cover;
+  height: 500px;
 
   .jumbo_title {
+    color: #02B1C8;
+    font-family: 'get_schwifty';
+    font-size: 8em;
+    text-outline: 1px solid #A2CB62;
     text-align: center;
+    text-shadow: 2px 2px 2px black;
+
   }
 
 } // jumbotron
@@ -32,5 +34,11 @@ body {
 }
 
 footer {
+  background-color: black;
+  height: 100px;
   margin-top: 50px;
+
+  .footer {
+    color: white;
+  }
 }

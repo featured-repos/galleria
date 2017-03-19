@@ -1,1 +1,14 @@
-<%= render "photo" %>
+
+<div class="container">
+  <div class="row">
+    <%= render "photo" %>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <%= link_to "Previous photo", gallery_photo_path(@gallery, @photo.previous) unless @photo == @gallery.photos.first %>
+    </div>
+    <div class="col-md-3">
+      <%= link_to "Next photo", gallery_photo_path(@gallery, @photo.next) unless @photo == @gallery.photos.last %>
+    </div>
+  </div>
+</div>

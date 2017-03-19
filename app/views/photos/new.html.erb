@@ -4,6 +4,8 @@
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :photo %>
+  <%= label_tag "accept", "Check this box if you would like to upload another picture to this album." %>
+    <%= check_box_tag "accept" %>
   <%= f.button :submit, "Submit photo" %>
 
 <% end %>

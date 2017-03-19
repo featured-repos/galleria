@@ -4,4 +4,8 @@ class Gallery < ApplicationRecord
 
   validates :title, presence: true
 
+  def owned_by?(this_user)
+    user == this_user
+  end
+
 end

@@ -1,11 +1,3 @@
-<% if flash.any? %>
-  <% flash.each do |klass, message| %>
-  <div class="alert alert-<%= klass %>" role="alert">
-    <p> <%= message %> </p>
-  </div>
-  <% end %>
-<% end %>
-
 <h1> Gallery name: <%= @gallery.title %> </h1>
 <h5> Created at <%=@gallery.created_at %> </h5>
 
@@ -20,6 +12,12 @@
         <%= image_tag f.size(:thumbnail) %>
         <% end %>
       </div>
+      <div class="row">
+        <%= f.description %>
+      </div>
+      <div class="row">
+        <%= link_to "Delete this picture", photo_path(f), method: :delete, class: "btn btn-danger" if f.owned_by? current_user %>
+      </div>
     </div>
   <% end %>
 </div>
@@ -32,7 +30,7 @@
   </div>
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
-      <%= link_to "New photo", new_gallery_photo_path(@gallery), class: "btn btn-default btn-block" %>
+      <%= link_to "New photo", new_gallery_photo_path(@gallery), class: "btn btn-default btn-block" if @gallery.owned_by? current_user %>
     </div>
   </div>
 </div>
@@ -49,7 +47,7 @@
 
   <div class="row">
     <div class="col-md-offset-5 col-md-2">
-      <%= link_to "Delete this gallery", gallery_path(@gallery), method: :delete, class: "btn btn-danger btn-block" %>
+      <%= link_to "Delete this gallery", gallery_path(@gallery), method: :delete, class: "btn btn-danger btn-block" if @gallery.owned_by? current_user %>
     </div>
   </div>
 </div>
