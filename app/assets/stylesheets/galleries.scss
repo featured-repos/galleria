@@ -1,3 +1,47 @@
 // Place all the styles related to the Galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.gallery_grid {
+  background-color: lightgrey;
+  margin-bottom: 40px;
+  padding: 30px;
+}
+
+.gallery_thumbnail {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.gallery_header {
+  background-image: image-url("banner_full.png");
+  background-size: cover;
+  height: 320px;
+  padding-top: 150px;
+  text-align: center;
+}
+
+.delete_link {
+  color: red;
+  font-size: 0.75em;
+}
+
+.add_photo_button {
+  font-size: 2em;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.share_button {
+  font-size: 0.8em;
+  margin-top: 25px;
+  padding: 5px;
+}
+
+.delete_button {
+  margin-bottom: 50px;
+}
+
+.create_gallery_header {
+  text-align: center;
+}

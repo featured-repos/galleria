@@ -1,7 +1,16 @@
-<h1> Create a new gallery </h1>
-
-<%= simple_form_for @gallery, class: "form-horizontal" do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row create_gallery_header">
+    <h1> Create a new gallery </h1>
+  </div>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <%= simple_form_for @gallery, class: "form-horizontal" do |f| %>
+        <%= f.input :title %>
+        <%= f.input :description %>
+        <div class="row submit_button">
+          <%= f.button :submit %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

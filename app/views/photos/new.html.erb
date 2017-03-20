@@ -1,11 +1,15 @@
-<h1>Add a Photo to your gallery</h1>
+<div class="container">
+  <div class="row add_photo_header">
+    <div class="col-md-12">
+      <h1>Add a Photo to your gallery</h1>
+    </div>
+  </div>
+</div>
 
-<%= simple_form_for [@gallery, @photo], class: "form-horizontal" do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <%= f.input :photo %>
-  <%= label_tag "accept", "Check this box if you would like to upload another picture to this album." %>
-    <%= check_box_tag "accept" %>
-  <%= f.button :submit, "Submit photo" %>
-
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 add_photo_form">
+      <%= render "form" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<%= simple_form_for [@gallery, @photo], class: "form-horizontal" do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :photo %>
+  <%= label_tag "accept", "Check this box if you would like to upload another picture to this album." %>
+    <%= check_box_tag "accept" %>
+  <div class="row submit_button">
+    <%= f.button :submit, "Submit photo", class: "btn btn-primary" %>
+  </div>
+<% end %>
