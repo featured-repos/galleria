@@ -22,7 +22,7 @@
         <%= f.description %>
       </div>
       <div class="row">
-        <%= link_to f do %>
+        <%= link_to gallery_photo_path(@gallery, f) do %>
         <%= image_tag f.size(:thumbnail) %>
         <% end %>
       </div>

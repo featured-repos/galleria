@@ -17,11 +17,11 @@ class Photo < ApplicationRecord
   end
 
   def next
-    user.photos.where("photos.id > ?", id).first
+    gallery.photos.where("photos.id > ?", id).first
   end
 
   def previous
-    user.photos.where("photos.id < ?", id).last
+    gallery.photos.where("photos.id < ?", id).last
   end
 
 end
