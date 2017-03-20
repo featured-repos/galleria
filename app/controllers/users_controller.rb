@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.signup(@user).deliver
       session[:user_id] = @user.id
-      flash[:success] = "Welcome to SHOW ME WHAT YOU GOT, #{@user.username}!"
+      flash[:success] = "Welcome to Show Me What You Got, #{@user.username}!"
       redirect_to :dashboard
     else
       render :new
