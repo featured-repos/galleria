@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
 
-  before_action :find_photo, only: [:show]
+  before_action :find_photo, only: [:show, :destroy]
 
   def new
     @gallery = Gallery.find_by(id: params[:gallery_id])
