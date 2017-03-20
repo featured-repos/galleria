@@ -29,8 +29,9 @@ class PhotosController < ApplicationController
   end
 
   def destroy
+    @gallery = @photo.gallery
     @photo.destroy
-    redirect_to gallery_path
+    redirect_to @gallery
   end
 
   private
