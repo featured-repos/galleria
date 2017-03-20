@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
 
-  before_action :find_photo, only: [:show, :destroy]
+  before_action :find_photo, only: [:show, :destroy, :share, :send_share]
 
   def new
     @gallery = Gallery.find_by(id: params[:gallery_id])
@@ -32,6 +32,16 @@ class PhotosController < ApplicationController
     @gallery = @photo.gallery
     @photo.destroy
     redirect_to @gallery
+  end
+
+  def share
+  end
+
+  def send_share
+    @send_to = params[:share][:email]
+    PhotoMailer.share(@photo, @send_to).deliver
+    flash[:success] = "Email sent!"
+    redirect_to @photo
   end
 
   private

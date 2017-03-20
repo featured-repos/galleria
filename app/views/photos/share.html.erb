@@ -1,15 +1,15 @@
 <div class="container">
   <div class="row share_header">
-    <h1>Share this gallery</h1>
+    <h1>Share this photo</h1>
   </div>
   <div class="row share_form_title">
     <div class="col-md-offset-3 col-md-6">
-      <%= @gallery.title %>
+      <%= @photo.title %>
     </div>
   </div>
   <div class="row share_form_title">
     <div class="col-md-offset-3 col-md-6">
-      <%= image_tag @gallery.photos.last.size(:thumbnail) %>
+      <%= image_tag @photo.size(:thumbnail) %>
     </div>
   </div>
   <div class="row">

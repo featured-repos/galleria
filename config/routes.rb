@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   get '/dashboard' => 'dashboards#index'
   get '/galleries/:id/share' => 'galleries#share', as: :share
   post '/galleries/:id/share' => 'galleries#send_share'
+  get '/galleries/:id/photos/:id/share' => 'photos#share', as: :share_photo
+  post '/galleries/:id/photos/:id/share' => 'photos#send_share'
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

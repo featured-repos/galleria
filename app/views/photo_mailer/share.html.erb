@@ -1,0 +1,16 @@
+<h1> Check out this photo at Show Me What You Got! </h1>
+
+<p>
+  <%= @photo.title %>
+</p>
+<p>
+  <%= @photo.description %>
+</p>
+<p>
+  <%= link_to @photo do %>
+    <%= image_tag @photo.photo %>
+  <% end %>
+</p>
+
+
+<p> Visit us any time at <%= link_to "Show Me What You Got", root_url %> </p>
