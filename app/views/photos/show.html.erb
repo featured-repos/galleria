@@ -1,13 +1,5 @@
 <div class="container photo">
-  <div class="row">
-    <h1> <%= @photo.title %> </h1>
-  </div>
-  <div class="row">
-    <h5> <%= @photo.description %> </h5>
-  </div>
-  <div class="row">
-    <%= image_tag @photo.photo %>
-  </div>
+  <%= render "photo" %>
 
   <div class="row">
     <div class="col-md-offset-3 col-md-2">

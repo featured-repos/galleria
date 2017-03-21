@@ -6,5 +6,15 @@ class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
   fixtures :all
 
+  def create_login(user=FactoryGirl.create(:user, password: "guest"))
+    post '/login',
+      params: {
+        session: {
+          username: user.username,
+          password: "guest"
+        }
+      }
+    user
+  end
   # Add more helper methods to be used by all tests here...
 end

@@ -1,8 +1,8 @@
 class GalleriesController < ApplicationController
 
-  before_action :current_user, only: [:edit, :update, :destroy]
+  before_action :current_user, only: [:create, :edit, :update, :destroy]
   before_action :find_gallery, only: [:show, :edit, :update, :destroy, :share, :send_share]
-  before_action :require_user, only: [:edit, :update, :destroy]
+  before_action :require_user, only: [:create, :edit, :update, :destroy]
 
   def new
     @gallery = Gallery.new
@@ -14,11 +14,13 @@ class GalleriesController < ApplicationController
       flash[:success] = "New gallery created"
       redirect_to :dashboard
     else
-      flash[:warning] = "Something got borked"
+      flash[:warning] = "Something got borked, please try again"
     end
   end
 
   def show
+    # @gallery = Gallery.includes(:photos).find(params[:id])
+    # .include reduces number of sql queries
   end
 
   def edit

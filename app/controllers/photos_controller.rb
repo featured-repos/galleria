@@ -1,14 +1,18 @@
 class PhotosController < ApplicationController
 
   before_action :find_photo, only: [:show, :destroy, :share, :send_share]
+  before_action :current_user, only: [:create, :destroy]
+  before_action :require_user, only: [:create, :destroy]
 
   def new
-    @gallery = Gallery.find_by(id: params[:gallery_id])
+    @gallery = Gallery.find(params[:gallery_id])
     @photo = Photo.new
   end
 
   def show
-    @gallery = @photo.gallery
+    # @gallery = @photo.gallery
+    @gallery = Gallery.find(params[:gallery_id])
+    @photo = @gallery.photos.find(params[:id])
   end
 
   def create

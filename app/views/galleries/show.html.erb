@@ -6,7 +6,7 @@
     <h5> Created on <%=@gallery.created_at.strftime("%A, %B %d, %Y at %l:%M %p") %> </h5>
   </div>
   <div class="row">
-    <div class="col-md-offset-10 col-md-2">
+    <div class="col-md-offset-5 col-md-2 share_gallery">
       <%= link_to "Share this gallery", share_path(@gallery), class: "btn btn-primary btn-block share_button" %>
     </div>
   </div>
@@ -14,17 +14,36 @@
 
 <div class="container gallery_grid">
   <% @gallery.photos.each do |f| %>
-    <div class="col-md-2 gallery_thumbnail">
+    <div class="col-md-3 gallery_thumbnail">
       <div class="row">
-        <%= link_to f.title %>
+        <%= f.title %>
       </div>
       <div class="row">
         <%= f.description %>
       </div>
       <div class="row">
-        <%= link_to gallery_photo_path(@gallery, f) do %>
+        <%= link_to "#", data: { toggle: "modal", target: "#modal-#{f.id}"} do %>
         <%= image_tag f.size(:thumbnail) %>
         <% end %>
+        <div class="modal fade bs-example-modal-lg" id="modal-<%= f.id %>" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <%= render f %>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-md-3 close_share">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <%= link_to "Share", share_photo_path(f), class: "btn btn-primary" %>
+                </div>
+                <div class="col-md-offset-5 col-md-4">
+                  <%= link_to "Previous", "#", class: "btn btn-default", data: { toggle: "modal", target: "#modal-#{ f.previous.id }", dismiss: "modal"} unless f == @gallery.photos.first %>
+                  <%= link_to "Next", "#", class: "btn btn-default", data: { toggle: "modal", target: "#modal-#{ f.next.id }", dismiss: "modal"} unless f == @gallery.photos.last %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="row">
         <%= link_to "Delete this picture", photo_path(f), method: :delete, class: "delete_link" if f.owned_by? current_user %>
